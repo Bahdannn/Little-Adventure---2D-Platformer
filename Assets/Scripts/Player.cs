@@ -10,9 +10,12 @@ public class Player : MonoBehaviour
     
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
+    
+    public static Player Instance { get; set; }
 
     private void Awake()
     {
+        Instance = this;
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
     }
@@ -37,5 +40,11 @@ public class Player : MonoBehaviour
     private void Jump()
     {
         rb.AddForce(transform.up * jumpForse, ForceMode2D.Impulse);
+    }
+
+    public void GetDamage()
+    {
+        lives -= 1;
+        Debug.Log(lives);
     }
 }
