@@ -10,7 +10,11 @@ public class Player : MonoBehaviour
     
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
-    
+    public bool Grounded = false;
+    public Transform GroundCheck;
+    public float GroundRadius = 0.2f;
+    public LayerMask whatIsGround;
+
     public static Player Instance { get; set; }
 
     private void Awake()
@@ -25,8 +29,10 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButton("Horizontal"))
             Run();
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && Grounded)
             Jump();
+
+        Grounded = Physics2D.OverlapCircle(GroundCheck.position, GroundRadius, whatIsGround);
     }
 
     private void Run()
