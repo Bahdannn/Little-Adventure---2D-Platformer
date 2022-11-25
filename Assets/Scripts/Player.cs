@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Player : MonoBehaviour
 {
@@ -14,6 +17,7 @@ public class Player : MonoBehaviour
     public Transform GroundCheck;
     public float GroundRadius = 0.2f;
     public LayerMask whatIsGround;
+    public Text HpT;
 
     public static Player Instance { get; set; }
 
@@ -23,7 +27,12 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
     }
-    
+
+    public void Start()
+    {
+        HpT.text = lives.ToString();
+    }
+
 
     private void Update()
     {
@@ -51,6 +60,7 @@ public class Player : MonoBehaviour
     public void GetDamage()
     {
         lives -= 1;
+        HpT.text = lives.ToString();
         Debug.Log(lives);
     }
 }
