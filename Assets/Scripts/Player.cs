@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
 
     public void Start()
     {
-        HpT.text = lives.ToString();
+        HpT.text = "Player HP: " + lives;
     }
 
 
@@ -60,7 +60,14 @@ public class Player : MonoBehaviour
     public void GetDamage()
     {
         lives -= 1;
-        HpT.text = lives.ToString();
+        HpT.text = "Player HP: " + lives;
+        Debug.Log(lives);
+    }
+
+    public void GetHealth()
+    {
+        lives += 1;
+        HpT.text = "Player HP: " + lives;
         Debug.Log(lives);
     }
 }
