@@ -70,4 +70,11 @@ public class Player : MonoBehaviour
         HpT.text = "Player HP: " + lives;
         Debug.Log(lives);
     }
+
+    public void FatalDamage()
+    {
+        lives = 0;
+        HpT.text = "Player HP: " + lives;
+        Debug.Log(lives);
+    }
 }
