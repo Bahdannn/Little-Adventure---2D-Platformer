@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class Player : MonoBehaviour
@@ -42,6 +43,8 @@ public class Player : MonoBehaviour
             Jump();
 
         Grounded = Physics2D.OverlapCircle(GroundCheck.position, GroundRadius, whatIsGround);
+        
+        RestartLevel();
     }
 
     private void Run()
@@ -76,5 +79,13 @@ public class Player : MonoBehaviour
         lives = 0;
         HpT.text = "Player HP: " + lives;
         Debug.Log(lives);
+    }
+
+    private void RestartLevel()
+    {
+        if (lives <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }
