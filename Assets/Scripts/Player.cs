@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour
     public float GroundRadius = 0.2f;
     public LayerMask whatIsGround;
     public Text HpT;
+    public Animator animator;
 
     public static Player Instance { get; set; }
 
