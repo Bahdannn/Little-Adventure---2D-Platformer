@@ -4,7 +4,7 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] private Transform player;
 
-    private Vector3 pos;
+    private Vector3 _pos;
 
     private void Awake()
     {
@@ -14,8 +14,8 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        pos = player.position;
-        pos.z = -10f;
-        transform.position = Vector3.Lerp(transform.position, pos, Time.deltaTime);
+        _pos = player.position;
+        _pos.z = -10f;
+        transform.position = Vector3.Lerp(transform.position, _pos, Time.deltaTime);
     }
 }

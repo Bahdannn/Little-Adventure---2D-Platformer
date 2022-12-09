@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -13,8 +9,8 @@ public class Player : MonoBehaviour
     [SerializeField] private int lives = 5;
     [SerializeField] private float jumpForse = 5f;
     
-    private Rigidbody2D rb;
-    private SpriteRenderer sprite;
+    private Rigidbody2D _rb;
+    private SpriteRenderer _sprite;
     public bool Grounded = false;
     public Transform GroundCheck;
     public float GroundRadius = 0.2f;
@@ -27,8 +23,8 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        rb = GetComponent<Rigidbody2D>();
-        sprite = GetComponentInChildren<SpriteRenderer>();
+        _rb = GetComponent<Rigidbody2D>();
+        _sprite = GetComponentInChildren<SpriteRenderer>();
     }
 
     public void Start()
@@ -53,13 +49,13 @@ public class Player : MonoBehaviour
     {
         Vector3 dir = transform.right * Input.GetAxis("Horizontal");
         transform.position = Vector3.MoveTowards(transform.position, transform.position + dir, speed * Time.deltaTime);
-        sprite.flipX = dir.x < 0.0f;
+        _sprite.flipX = dir.x < 0.0f;
         
     }
 
     private void Jump()
     {
-        rb.AddForce(transform.up * jumpForse, ForceMode2D.Impulse);
+        _rb.AddForce(transform.up * jumpForse, ForceMode2D.Impulse);
     }
 
     public void GetDamage()

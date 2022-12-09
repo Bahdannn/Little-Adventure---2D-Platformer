@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -13,9 +10,9 @@ public class Enemy : MonoBehaviour
    public Transform player;
    public float stoppingDistance;
 
-   private bool chill = false;
-   private bool angry = false;
-   private bool goBack = false;
+   private bool _chill = false;
+   private bool _angry = false;
+   private bool _goBack = false;
 
    public void Start()
    {
@@ -24,33 +21,33 @@ public class Enemy : MonoBehaviour
 
    public void Update()
    {
-      if (Vector2.Distance(transform.position, point.position) < positionOfPatrol && angry == false)
+      if (Vector2.Distance(transform.position, point.position) < positionOfPatrol && _angry == false)
       {
-         chill = true;
+         _chill = true;
       }
 
       if (Vector2.Distance(transform.position, player.position) < stoppingDistance)
       {
-         angry = true;
-         chill = false;
-         goBack = false;
+         _angry = true;
+         _chill = false;
+         _goBack = false;
       }
       
       if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
       {
-         goBack = true;
-         angry = false;
+         _goBack = true;
+         _angry = false;
       }
 
-      if (chill == true)
+      if (_chill == true)
       {
          Chill();
       }
-      else if (angry == true)
+      else if (_angry == true)
       {
          Angry();
       }
-      else if (goBack == true)
+      else if (_goBack == true)
       {
          GoBack();
       }
