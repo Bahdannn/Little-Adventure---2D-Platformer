@@ -64,6 +64,13 @@ public class Player : MonoBehaviour
         HpT.text = "Player HP: " + lives;
         Debug.Log(lives);
     }
+    
+    public void GetBigDamage()
+    {
+        lives -= 3;
+        HpT.text = "Player HP: " + lives;
+        Debug.Log(lives);
+    }
 
     public void GetHealth()
     {

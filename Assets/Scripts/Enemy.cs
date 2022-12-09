@@ -90,7 +90,7 @@ public class Enemy : MonoBehaviour
    {
       if (collision.gameObject == Player.Instance.gameObject)
       {
-         Player.Instance.GetDamage();
+         Player.Instance.GetBigDamage();
       }
    }
 }

@@ -13,7 +13,7 @@ public class BombSpawn : MonoBehaviour
         if(Time.time > _nextSpawn)
         {
             _nextSpawn = Time.time + spawnRate;
-            _randX = Random.Range(-23f, 15f);
+            _randX = Random.Range(-15f, 100f);
             _whereToSpawn = new Vector2(_randX, transform.position.y);
             Instantiate(obj, _whereToSpawn, Quaternion.identity);
         }
