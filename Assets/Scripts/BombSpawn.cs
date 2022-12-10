@@ -5,7 +5,7 @@ public class BombSpawn : MonoBehaviour
     [SerializeField] private GameObject obj;
     private float _randX;
     private Vector2 _whereToSpawn;
-    [SerializeField] private float spawnRate = 2f;
+    [SerializeField] private float spawnRate = 7f;
     private float _nextSpawn = 0.0f;
     
     void Update()
@@ -13,7 +13,7 @@ public class BombSpawn : MonoBehaviour
         if(Time.time > _nextSpawn)
         {
             _nextSpawn = Time.time + spawnRate;
-            _randX = Random.Range(-15f, 100f);
+            _randX = Random.Range(-30f, 130f);
             _whereToSpawn = new Vector2(_randX, transform.position.y);
             Instantiate(obj, _whereToSpawn, Quaternion.identity);
         }
