@@ -5,7 +5,7 @@ public class BombSpawn : MonoBehaviour
     [SerializeField] private GameObject obj;
     private float _randX;
     private Vector2 _whereToSpawn;
-    [SerializeField] private float spawnRate = 7f;
+    [SerializeField] private float spawnRate = 15f;
     private float _nextSpawn = 0.0f;
     
     void Update()
