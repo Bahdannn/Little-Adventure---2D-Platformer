@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
 
     public void Start()
     {
-        HpT.text = "Player HP: " + lives;
+        HpT.text = "Очки Жизни: " + lives;
     }
 
 
@@ -61,28 +61,28 @@ public class Player : MonoBehaviour
     public void GetDamage()
     {
         lives -= 1;
-        HpT.text = "Player HP: " + lives;
+        HpT.text = "Очки Жизни: " + lives;
         Debug.Log(lives);
     }
     
     public void GetBigDamage()
     {
         lives -= 3;
-        HpT.text = "Player HP: " + lives;
+        HpT.text = "Очки Жизни: " + lives;
         Debug.Log(lives);
     }
 
     public void GetHealth()
     {
         lives += 1;
-        HpT.text = "Player HP: " + lives;
+        HpT.text = "Очки Жизни: " + lives;
         Debug.Log(lives);
     }
 
     public void FatalDamage()
     {
         lives = 0;
-        HpT.text = "Player HP: " + lives;
+        HpT.text = "Очки Жизни: " + lives;
         Debug.Log(lives);
     }
 
